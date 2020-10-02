@@ -7,7 +7,7 @@
 
     </div>
     <div class="card-body card-block">
-        <form action="{{ route('transaction.update', $item->id)}}" method="POST">
+        <form action="{{ route('transactions.update', $item->id)}}" method="POST">
             @method('PUT')
             @csrf
             <div class="form-group">

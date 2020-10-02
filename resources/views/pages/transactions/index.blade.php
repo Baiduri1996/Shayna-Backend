@@ -41,7 +41,7 @@
                                             @elseif($item->transaction_status == 'SUCCESS')
                                             <span class="badge badge-success">
                                                 @elseif($item->transaction_status == 'FAILED')
-                                                <span class="badge badge-info">
+                                                <span class="badge badge-danger">
                                                     @else
                                                     <span>
                                                         @endif
@@ -51,23 +51,25 @@
                                     <td>
 
                                         @if($item->transaction_status == 'PENDING')
-                                        {{-- <a href="{{ route('transactions.status', $item->id)}}?status=SUCCESS"
-                                        class="btn btn-success btn-sm">
-                                        <i class="fa fa-check"></i>
+                                        <a href="{{ route('transactions.status', $item->id)}}?status=SUCCESS"
+                                            class="btn btn-success btn-sm">
+                                            <i class="fa fa-check"></i>
                                         </a>
                                         <a href="{{ route('transactions.status', $item->id)}}?status=FAILED"
                                             class="btn btn-warning btn-sm">
-                                            <i class="fa fa-tims"></i>
-                                        </a> --}}
+                                            <i class="fa fa-times"></i>
+                                        </a>
                                         @endif
 
 
-                                        <a href="#mymodal" data-remote=" {{ route('transactions.show', $item->id)}}"
+                                        <a href="#mymodal" data-remote="{{ route('transactions.show', $item->id) }}"
                                             data-toggle="modal" data-target="#mymodal"
                                             data-title="Detail Transaction {{ $item->uuid }}"
-                                            class="btn btn-info  btn-sm">
+                                            class="btn btn-info btn-sm">
                                             <i class="fa fa-eye"></i>
                                         </a>
+
+                                       
                                         <a href=" {{ route('transactions.edit', $item->id)}}"
                                             class="btn btn-primary btn-sm">
                                             <i class="fa fa-pencil"></i>
